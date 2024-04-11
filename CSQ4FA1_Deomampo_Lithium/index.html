@@ -1,0 +1,94 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign up Form</title>
+    <style>
+        .error {
+            border: 1px solid red;
+        }
+        .success {
+            border: 1px solid green;
+        }
+    </style>
+</head>
+<body>
+    <form id="Sign Up" onsubmit="return given();">
+        <fieldset form="Sign Up">
+            <legend>Sign Up</legend>
+            <label for="userName">Name:</label><br>
+            <input type="text" id="Name" name="Name" onblur="colorS(this)" onfocus="resetBorder(this)"><br>
+
+            <label for="preferred">Preferred username:</label><br>
+            <input type="text" id="Pref" name="Pref" onblur="colorS(this)" onfocus="resetBorder(this)"><br>
+
+            <label for="password">Password:</label><br>
+            <input type="password" id="Pass" name="Pass" onblur="colorS(this)" onfocus="resetBorder(this)"><br>
+
+            <label for="Email">Email:</label><br>
+            <input type="email" id="email" name="Email" onblur="colorS(this)" onfocus="resetBorder(this)"><br>
+
+            <label for="Add">Address:</label><br>
+            <input type="text" id="Add" name="Add" onblur="colorS(this)" onfocus="resetBorder(this)"><br>
+
+            <label for="gender">What is your gender?</label><br>
+            <select name="gender" id="gend" onblur="colorS(this)" onfocus="resetBorder(this)">
+                <option value="M">Male</option>
+                <option value="F">Female</option>
+                <option value="N">Prefer not to say</option>
+            </select><br>
+
+            <label for="Interest">Interests:</label> <br>
+            <textarea id="tArea" name="Interests" rows="4" cols="50" onblur="colorS(this)" onfocus="resetBorder(this)"></textarea><br>
+
+            <input type="submit" value="Login">
+            <input type="reset" value="Clear">
+        </fieldset>
+    </form>
+
+    <p id="gro"></p>
+    <p id="gr"></p>
+    <p id="g"></p>
+    <p id="grow"></p>
+    <p id="grows"></p>
+    <p id="growse"></p>
+    <p id="growses"></p>
+
+    <script>
+        function given(){
+            var name=document.getElementById("Name").value;
+            var prefName=document.getElementById("Pref").value;
+            var pass=document.getElementById("Pass").value;
+            var email=document.getElementById("email").value;
+            var add=document.getElementById("Add").value;
+            var gen=document.getElementById("gend").value;
+            var inte=document.getElementById("tArea").value;
+
+            document.getElementById("gro").innerHTML = "Name: " + name + "<br>";
+            document.getElementById("gr").innerHTML = "Preferred username: " + prefName + "<br>";
+            document.getElementById("g").innerHTML = "Password: " + pass + "<br>";
+            document.getElementById("grow").innerHTML = "Email: " + email + "<br>";
+            document.getElementById("grows").innerHTML = "Address: " + add + "<br>";
+            document.getElementById("growse").innerHTML = "Gender: " + gen + "<br>";
+            document.getElementById("growses").innerHTML = "Interests: " + inte + "<br>";
+
+            return false;
+        }
+
+        function colorS(input){
+            if (input.value === "") {
+                input.classList.add("error");
+            } 
+            else {
+                input.classList.remove("error");
+                input.classList.add("success");
+            }
+        }
+
+        function resetcolorS(input){
+            input.classList.remove("error");
+            input.classList.remove("success");
+        }
+    </script>
+</body>
+</html>
